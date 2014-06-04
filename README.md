@@ -3,4 +3,4 @@ ePaper-Wordpress-Plugin
 
 Yumpu ePaper Wordpress Plugin
 
-added first version
+Go to http://blog.yumpu.com/PDF-Wordpress-Plugin for more information
