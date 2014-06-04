@@ -1,0 +1,121 @@
+@CHARSET "UTF-8";
+
+
+.media-frame-title, .media-frame-router, .media-frame-content, .media-frame-toolbar {
+	left:0px;
+}
+
+.hiddenTab {
+	display:none;
+}
+
+.yumpu_uploader .intro h3 {
+	color:#222;
+}
+
+.yumpu_uploader .intro {
+	text-align:center;
+	margin-top:10%;
+	margin-right:200px;
+}
+
+.media-sidebar {
+	width:199px;	
+}
+
+.dialog_content {
+	display:none;
+}
+
+.yumpu_file_uploader {
+	display:block;
+	width:90px;
+	margin:auto;
+}
+
+
+#yumpu_uploadify_case {
+	width:150px;
+	height:50px;
+	border:1px solid #000;
+	margin:auto;
+	color: #555;
+	border-color: #ccc;
+	background: #f7f7f7;
+	-webkit-box-shadow: inset 0 1px 0 #fff,0 1px 0 rgba(0,0,0,.08);
+	box-shadow: inset 0 1px 0 #fff,0 1px 0 rgba(0,0,0,.08);
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	-webkit-border-radius: 3px;
+	-webkit-appearance: none;
+	border-radius: 3px;
+}
+
+#yumpu_upload_queue {
+	width:500px;
+}
+
+.uploadify-queue-item {
+	background-color: transparent;
+	max-width:500px;
+	width:100%;
+}
+
+
+.uploadify-button {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	color:#000;
+}
+
+.uploadify:hover .uploadify-button {
+	background-color: transparent;
+}
+
+.yumpu_button {
+	text-indent:0;
+}
+
+#yumpu_uploadify_case p {
+	margin:0px;
+	padding:15px 0px 0px 0px;
+	width:150px;
+	text-align:center;
+	font-size: 14px;
+	position:absolute;
+}
+
+#uploadButton object {
+	left:0px;
+}
+
+.uploadify-button-text {
+	color:#555!important;
+	text-indent:0;
+	text-shadow:none;
+}
+
+#yumpu_uploadify_case:hover {
+	background: #fafafa;
+	border-color: #999;
+	color: #222;
+}
+
+.yumpuErrorText {
+	color: #a00!important;
+}
+
+
+span.ajaxLoader {
+	background-image: url(../../../../wp-admin/images/spinner.gif);
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	margin-left: 5px;
+	margin-top:20px;
+	float:left;
+	display: none;
+}
