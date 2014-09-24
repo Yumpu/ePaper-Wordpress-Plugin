@@ -263,6 +263,13 @@ Class WP_Yumpu {
     				echo json_encode(array('result' => false, 'error' => $YAPI->get_errors()));
     			}
     			break;
+			/**
+    		 * AJAX Call from Posts to open pdf editor manager
+    		 */
+    		case 'editorActions':
+				$WP_Yumpu_Admin_Editor = new WP_Yumpu_Admin_Editor(WP_Yumpu::$PLUGIN_PATH);
+				$WP_Yumpu_Admin_Editor->run();
+				break;
     	}
     	
     	exit;

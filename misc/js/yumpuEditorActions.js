@@ -91,7 +91,7 @@ function yumpuInitialUploadify() {
         'multi'    : false,
         'fileTypeDesc' : 'PDF Document',
         'fileTypeExts' : '*.pdf',
-        'uploader' : yumpu_plugin_url+'editor/editor_content.php?method=upload',
+        'uploader' : window.location.protocol + "//" + window.location.host + '/wp-admin/admin-ajax.php?action=wp_yumpu&run=editorActions&method=upload',
         'onUploadStart' : function(file) {
         	/**
         	 * Button deaktivieren und UI-Feedback an User.
@@ -213,7 +213,7 @@ function yumpuPublishFile() {
 	$('#yumpu_uploadButton').attr('disabled','disabled');
 	$('#yumpu_uploadButton').html('processing - please wait!');
 	
-	$.post(yumpu_plugin_url+'editor/editor_content.php?method=publish', postdata, function(response) {
+	$.post(window.location.protocol + "//" + window.location.host + '/wp-admin/admin-ajax.php?action=wp_yumpu&run=editorActions&method=publish', postdata, function(response) {
 		if(response.status == "error") {				
 			yumpuNotifyUser('Error', response.message, 'error');
 			yumpuStartTab('tab1');
