@@ -5,13 +5,19 @@
 		var yumpu_plugin_url = '<?php echo $this->plugin_url; ?>';
 	</script>
 	<script language="javascript" type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-includes/js/tinymce/tiny_mce_popup.js"></script>
-	<script src="<?php echo $this->plugin_url; ?>misc/js/jquery-1.11.0.min.js"></script>
-	<script src="<?php echo $this->plugin_url; ?>editor/uploadify/jquery.uploadify.min.js"></script>
-	<script src="<?php echo $this->plugin_url; ?>misc/DataTables-1.9.4/media/js/jquery.dataTables.min.js"></script>
+	<?php
+		wp_enqueue_script('jquery');
+		wp_print_scripts('jquery');
+	?>
+	<script>
+		var $ = jQuery;
+	</script>
+	<script src="<?php echo $this->plugin_url; ?>editor/uploadify/jquery.uploadify.js"></script>
+	<script src="<?php echo $this->plugin_url; ?>misc/DataTables-1.10.2/media/js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo $this->plugin_url; ?>misc/js/yumpuEditorActions.js"></script>
 	
 	<link rel='stylesheet' href='<?php echo get_option('siteurl'); ?>/wp-admin/load-styles.php?c=0&amp;dir=ltr&amp;load=dashicons,admin-bar,buttons,media-views,wp-admin,wp-auth-check&amp;ver=3.8.1' type='text/css' media='all' />
-	<link rel="stylesheet" href="<?php echo $this->plugin_url; ?>misc/DataTables-1.9.4/media/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="<?php echo $this->plugin_url; ?>misc/DataTables-1.10.2/media/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="<?php echo $this->plugin_url; ?>editor/uploadify/uploadify.css">
 	<link rel="stylesheet" href="<?php echo $this->plugin_url; ?>misc/css/yumpuEditorTheme.css">
 </head>
@@ -146,8 +152,8 @@
 	});
 </script>
 
-<link rel="stylesheet" href="../../../wp-content/plugins/yumpu/misc/DataTables-1.9.4/media/css/jquery.dataTables.css">
-<script src="../../../wp-content/plugins/yumpu/misc/DataTables-1.9.4/media/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="<?php echo plugins_url( 'misc/DataTables-1.10.2/media/css/jquery.dataTables.css', dirname(__FILE__) );?>">
+<script src="<?php echo plugins_url( 'misc/DataTables-1.10.2/media/js/jquery.dataTables.min.js', dirname(__FILE__) );?>"></script>
 <script>
 	$=jQuery.noConflict();
 	$('#dataTable').dataTable({

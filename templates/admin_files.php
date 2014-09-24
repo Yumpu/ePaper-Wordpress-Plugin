@@ -64,8 +64,8 @@
 	
 </div>
 
-<link rel="stylesheet" href="../wp-content/plugins/yumpu/misc/DataTables-1.9.4/media/css/jquery.dataTables.css">
-<script src="../wp-content/plugins/yumpu/misc/DataTables-1.9.4/media/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="<?php echo plugins_url( 'misc/DataTables-1.10.2/media/css/jquery.dataTables.css', dirname(__FILE__) );?>">
+<script src="<?php echo plugins_url( 'misc/DataTables-1.10.2/media/js/jquery.dataTables.min.js', dirname(__FILE__) );?>"></script>
 <script>
 	$=jQuery.noConflict();
 	$('#dataTable').dataTable({
