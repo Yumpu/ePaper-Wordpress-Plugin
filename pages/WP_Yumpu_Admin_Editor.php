@@ -65,14 +65,16 @@ class WP_Yumpu_Admin_Editor {
 			$message = "no input file";
 		}		
 		
-		echo json_encode(array(
+		$upload_response = json_encode(array(
 			'status' => $status,
 			'message' => $message,
 			'id' => $id,
-			'filename' => $imported_filename
+			'filename' => addslashes($imported_filename)
 		));
 		
-		
+		$HB = new HtmlBuilder('admin_upload_response.php', $this->plugin_path.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR);
+		$HB->assign('upload_response', $upload_response);
+		echo $HB->get_data();
 	}
 	
 	private function handle_publish() {

@@ -109,7 +109,7 @@
 
 
 span.ajaxLoader {
-	background-image: url(../../../../wp-admin/images/spinner.gif);
+	background-image: url(../../../../../wp-admin/images/spinner.gif);
 	width: 20px;
 	height: 20px;
 	display: inline-block;
