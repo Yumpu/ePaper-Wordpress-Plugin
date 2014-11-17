@@ -1,12 +1,11 @@
 <?php
 /*
-  Plugin Name: Yumpu PDF Embed
-  Description:  Yumpu is a Free PDF to E-Paper site.<br/>The Service allows you to upload a PDF, the API then returns an i-Frame that shall be embedded.<br/>The wordpress Plugin shall help the user to upload and embed a PDF faster.
-  Author: Weddig & Keutel AG 
-  Author URI: http://weddig-keutel.de
+  Plugin Name: Yumpu ePaper publishing
+  Description:  Yumpu is a free PDF to ePaper site. <br/>The Service allows you to upload a PDF and embed it as an ePaper via shortcode.
+  Author: Yumpu.com
+  Author URI: http://www.yumpu.com
   Version: 1.0.1
  */
-
 Class WP_Yumpu {
 	static private $instance = null;
 	
