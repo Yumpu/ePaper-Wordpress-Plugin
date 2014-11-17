@@ -13,7 +13,7 @@ Class WP_Yumpu {
 	/**
 	 * Mit diesem Schlüssel wird der Access-Token in WP abgelegt.
 	 */
-	const YUMPO_WP_SETTINGS_KEY = "YUMPU_API_ACCESS_TOKEN";
+	const YUMPU_WP_SETTINGS_KEY = "YUMPU_API_ACCESS_TOKEN";
 	
 	/**
 	 * YUMPU API-Token
@@ -233,7 +233,7 @@ Class WP_Yumpu {
     				/**
     				 * Wir speichern den API Token
     				 */
-    				update_option(self::YUMPO_WP_SETTINGS_KEY, $api_token);
+    				update_option(self::YUMPU_WP_SETTINGS_KEY, $api_token);
     				
     				/**
     				 * Und setzen den API-Token direkt.
