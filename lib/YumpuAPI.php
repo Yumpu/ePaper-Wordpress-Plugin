@@ -75,7 +75,13 @@ class YumpuAPI {
 		
 		$result = json_decode($this->remote_post(self::API_CMD_USER_JSON, $data));
 		if(!is_object($result) || $result->state != "success") {
-			$this->errors[] = $result->error;
+			if (isset($result->errors)) {
+				foreach($result->errors as $field => $error){
+					$this->errors[] = $error->message;
+				}
+			} elseif (isset($result->error)) {
+				$this->errors[] = $result->error;
+			}
 			throw new YumpuAPI_Exception("API-Error");
 		} else {
 			return $result->user->access_token;
@@ -90,7 +96,13 @@ class YumpuAPI {
 	public function check_api_key() {
 		$result = json_decode($this->remote_get(self::API_CMD_USER_JSON));
 		if(!is_object($result) || $result->state != "success") {
-			$this->errors[] = $result->error;
+			if (isset($result->errors)) {
+				foreach($result->errors as $field => $error){
+					$this->errors[] = $error->message;
+				}
+			} elseif (isset($result->error)) {
+				$this->errors[] = $result->error;
+			}
 			throw new YumpuAPI_Exception("API-Error");
 		} else {
 			return true;
@@ -110,7 +122,13 @@ class YumpuAPI {
 		
 		$result = json_decode($this->remote_post(self::API_CMD_DOCUMENT_POST, $data, true));
 		if(!is_object($result) || $result->state != "success") {
-			$this->errors[] = $result->error;
+			if (isset($result->errors)) {
+				foreach($result->errors as $field => $error){
+					$this->errors[] = $error->message;
+				}
+			} elseif (isset($result->error)) {
+				$this->errors[] = $result->error;
+			}
 			throw new YumpuAPI_Exception("API-Error");
 		} else {
 			return $result;

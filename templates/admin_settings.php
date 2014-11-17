@@ -215,7 +215,7 @@ jQuery(document).ready(function($) {
 				if(response.result) {
 					api_token = response.API_TOKEN;
 					$('#API_TOKEN').val(api_token);
-					alert('Erfolgreich --- TOKEN: '+api_token);
+					$('#msgBox_reg').html('<div id="message" class="updated"><p>Erfolgreich --- TOKEN: ' + response.API_TOKEN + ' </p></div>').hide().slideToggle();
 				} else {
 					$('#msgBox_reg').html('<div id="message" class="error"><p>'+response.error.join('<br>')+' </p></div>').hide().slideToggle();
 				}
