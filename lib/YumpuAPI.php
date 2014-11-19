@@ -12,12 +12,6 @@ class YumpuAPI {
 	const API_STATUS_RETRY_TIME = 1;
 	
 	/**
-	 * Master Token für die Benutzerregistrierung
-	 */
-	const API_MASTER_TOKEN = "2b5fb54f42e66c5d0edc08717cba7f9f";
-	
-	
-	/**
 	 * API Command für den Benutzer.
 	 */
 	const API_CMD_USER_JSON = "user.json";
@@ -217,11 +211,7 @@ class YumpuAPI {
 		
 		
 		$header_arr = array();
-		if($this->api_token !== null) {
-			$header_arr[] = 'X-ACCESS-TOKEN: '.$this->api_token;
-		} else {
-			$header_arr[] = 'X-ACCESS-TOKEN: '.self::API_MASTER_TOKEN;
-		}
+		$header_arr[] = 'X-ACCESS-TOKEN: '.$this->api_token;
 		
 		if($multiform) {
 			$header_arr[] = 'Content-Type: multipart/form-data';
