@@ -35,7 +35,7 @@
 		</tbody>
 	</table>
 	<p style="clear:both;padding-bottom:20px;"></p>
-	<h3>ePaper erstellen</h3>
+	<h3>Create E-Paper</h3>
 	<form style="margin-left: 30px;" id="api_token_form" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="yumpu_action" value="create_epaper">
         <table class="form-table">
