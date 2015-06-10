@@ -5,7 +5,7 @@
     tinymce.create('tinymce.plugins.my_yumpu', {
 		
         init : function(ed, url) {                    
-			var target_url = window.location.protocol + "//" + window.location.host + '/wp-admin/admin-ajax.php?action=wp_yumpu&run=editorActions';
+			var target_url = ajaxurl + '?action=wp_yumpu&run=editorActions';
             
             // Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceExample');	
             ed.addCommand('my_yumpu_cmd', function() {                
