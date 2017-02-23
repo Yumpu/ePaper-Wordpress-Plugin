@@ -4,7 +4,7 @@
   Description:  Yumpu is a free PDF to ePaper site. <br/>The Service allows you to upload a PDF and embed it as an ePaper via shortcode.
   Author: Yumpu.com
   Author URI: http://www.yumpu.com
-  Version: 1.0.4
+  Version: 2.0.23
  */
 Class WP_Yumpu {
 	static private $instance = null;
@@ -336,7 +336,15 @@ ga("send", "pageview");
 		
 		
 		try {
-			$ePaper = YumpuEpaper_repository::loadById($document_id);
+
+		    if($document_id < 10000){
+                $ePaper = YumpuEpaper_repository::loadById($document_id);
+            } else {
+                $YAPI = new YumpuAPI(WP_Yumpu::$API_TOKEN);
+                $result = $YAPI->document_get($document_id);
+                $ePaper = YumpuEpaper_repository::LoadEpaperfromID($result);
+            }
+
 			if($ePaper->getStatus() == "progress") {
 				$ret = $content.'<div style="position:relative; width:'.$document_width.'px;height:'.$document_height.'px; background:#233039;margin-bottom:10px;"><p style="text-align:center;padding-top:'.(($document_height/2)-30).'px;color:#ffffff;font-weight:normal;font-size:1.5em;">ePaper in progress <br><span style="color:#93A8B7;font-size:0.7em;">Powered by Yumpu.com</span></p>';
 				$ret .= '<a class="yumpuLink" target="yumpu" href="http://www.yumpu.com/de/"><img src="'.plugins_url('misc/images/yumpu_logo_trans.png', __FILE__).'"></a>';

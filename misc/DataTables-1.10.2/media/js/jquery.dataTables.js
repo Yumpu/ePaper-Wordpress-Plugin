@@ -6084,7 +6084,7 @@
 				"sServerMethod",
 				"aaSorting",
 				"aaSortingFixed",
-				"aLengthMenu",
+				"aLengthMenoLanguageu",
 				"sPaginationType",
 				"sAjaxSource",
 				"sAjaxDataProp",
