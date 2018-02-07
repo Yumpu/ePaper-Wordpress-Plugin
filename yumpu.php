@@ -319,7 +319,7 @@ ga("send", "pageview");
  	public function admin_notice() {
  		$api_token = WP_Yumpu::$API_TOKEN;
         if (empty($api_token) || is_null($api_token)) {
-            echo '<div class="updated"><p>Get your Yumpu.com API Key from your account and add it <a href="options-general.php?page=yumpu-settings">here</a>. You can get more informations <a href="http://support.yumpu.com/en/question/yumpucom-developer-interface">here</a>.</p></div>';
+            echo '<div class="updated"><p>Get your Yumpu.com API Key from your account and add it <a href="options-general.php?page=yumpu-settings">here</a>. You can get more information <a href="http://support.yumpu.com/en/question/yumpucom-developer-interface">here</a>.</p></div>';
         }
     }
     
