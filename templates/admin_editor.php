@@ -12,7 +12,13 @@
 				<a href="javascript:yumpuStartTab('tab2');" class="media-menu-item media-menu-tab2">Insert existing PDF</a>
 			</div>
 		</div>
-		
+		<?php
+					$uploadUrl = add_query_arg(array(
+            'action'=>'wp_yumpu',
+            'run'=>'editorActions',
+            'method'=>'upload'
+           ), admin_url('admin-ajax.php'));
+		?>
 		<div class="media-frame-content">
 			<div id="media-frame-tab1" class="yumpu_tab">
 				<!-- 1. Uploader view.... -->
@@ -26,7 +32,7 @@
 					</div>
 					<div class="media-sidebar">
 						<div class="attachment-details">
-							<form method="post" target="ifmUpload" action="/wp-admin/admin-ajax.php?action=wp_yumpu&run=editorActions&method=upload" enctype="multipart/form-data">
+							<form method="post" target="ifmUpload" action="<?php echo $uploadUrl; ?>" enctype="multipart/form-data">
 							<input type="file" id="uploadButton" name="Filedata" class="uploadButton" style="display:none">
 							<h3>Optional</h3>
 							<label class="setting" data-setting="title">
@@ -96,6 +102,7 @@
 
 <script>
 	var yumpu_plugin_url = '<?php echo $this->plugin_url; ?>';
+	var yumpu_ajax_url = '<?php echo admin_url('admin-ajax.php'); ?>';
 </script>
 <?php
 	wp_enqueue_script('jquery');
