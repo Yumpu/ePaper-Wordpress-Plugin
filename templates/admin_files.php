@@ -1,4 +1,8 @@
 <div class="wrap">
+    <?php
+    $pathurl= plugin_dir_url(__FILE__).'../'.'/lib/epapers.php';
+    $path=parse_url($pathurl);
+ ?>
     <h2>E-Paper powered by <a href="https://www.yumpu.com" target="_blank">Yumpu.com</a></h2>
     <h2>
         <button id="mceu_13-button" class="button-primary" href='#' onclick='overlay()'
@@ -168,7 +172,7 @@
                     "autoWidth": false,
                     "retrieve": true,
                     "ajax": {
-                        "url": '../wp-content/plugins/yumpu-epaper-publishing/lib/epapers.php?tokenid=' + myTokenID,
+                        "url": "<?php echo $path ["path"]; ?>"+"?tokenid=" + myTokenID,
                         "dataSrc": "epapers",
                         "error": function (xhr, error, thrown) {
                             console.log(error.message);
