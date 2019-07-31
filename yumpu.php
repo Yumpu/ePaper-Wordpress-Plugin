@@ -4,7 +4,7 @@
   Description:  Yumpu is a free PDF to ePaper site. <br/>The Service allows you to upload a PDF and embed it as an ePaper via shortcode.
   Author: Yumpu.com
   Author URI: http://www.yumpu.com
-  Version: 2.0.23
+  Version: 2.0.24
  */
 Class WP_Yumpu {
 	static private $instance = null;
@@ -56,7 +56,7 @@ Class WP_Yumpu {
 		$this->plugin_path = realpath(dirname( __FILE__ ));
 		$this->plugin_pages_path = $this->plugin_path.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR;
 		$this->plugin_lib_path = $this->plugin_path.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR;
-		
+
 		WP_Yumpu::$PLUGIN_PATH = $this->plugin_path;
 		WP_Yumpu::$PLUGIN_URL = $this->plugin_url;
 		

@@ -62,7 +62,11 @@
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
+
                     <th>Status</th>
+
+                    <th>State</th>
+
                     <th>Optionen</th>
                 </tr>
                 </thead>
@@ -70,11 +74,17 @@
                 <?php $count = 0; ?>
                 <?php foreach ($this->epapers as $ePaper) {
 
+                    if ($ePaper->getStatus() == "progress") {
+                        $myState = '<span  class="dashicons dashicons-yes"></span>';
+                    } else {
+                        $myState = '<span  class="dashicons dashicons-external"></span>';
+                    }
+
                     ?>
                     <tr class="<?php echo (++$count % 2) ? "" : "alternate"; ?>">
                         <td><?php echo $ePaper->getEpaper_id(); ?></td>
                         <td><?php echo $ePaper->getTitle(); ?></td>
-                        <td><?php echo $ePaper->getStatus(); ?></td>
+                        <td><?php echo $myState; ?></td>
                         <td>
                             <button class="yp-insert-short-code" id="<?php echo ($ePaper->getEpaper_id());?>"
                                     title="<?php echo ($ePaper->getEpaper_id()) ? 'available' : ' Not available' ?>"
