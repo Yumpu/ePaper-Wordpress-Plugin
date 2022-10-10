@@ -48,9 +48,7 @@ Class WP_Yumpu {
 	 * Pfad zum Lib Verzeichnis
 	 */
 	private $plugin_lib_path;
-	
-	
-	
+
 	function __construct() {
 		$this->plugin_url = plugin_dir_url(__FILE__); 
 		$this->plugin_path = realpath(dirname( __FILE__ ));
@@ -77,9 +75,7 @@ Class WP_Yumpu {
 		require_once $this->plugin_pages_path.'WP_Yumpu_Admin_Settings.php';
 		require_once $this->plugin_pages_path.'WP_Yumpu_Admin_Files.php';
 		require_once $this->plugin_pages_path.'WP_Yumpu_Admin_Editor.php';
-		
-		
-		
+
 		/**
 		 * Registriert einen Hook für die Plugin-Aktivierung
 		 */
@@ -104,16 +100,7 @@ Class WP_Yumpu {
          * Ajax Handler für API Registrieren.
          */
         add_action( 'wp_ajax_wp_yumpu', array( &$this, 'ajax_handler' ) );
-        
-        
-		/**
-		 * Add chartbeat and google analytics
-		 */
-		add_action('admin_head-settings_page_yumpu-settings', array(&$this, 'add_head_settings') );
-		add_action('admin_head-toplevel_page_yumpu-filemanager', array(&$this, 'add_head_settings') );
-		add_action('admin_footer-settings_page_yumpu-settings', array(&$this, 'add_footer_settings') );
-		add_action('admin_footer-toplevel_page_yumpu-filemanager', array(&$this, 'add_footer_settings') );
-		
+
         /**
          * Shortcode Registrieren
          */
@@ -123,8 +110,7 @@ Class WP_Yumpu {
          * Load API-Token
          */
         WP_Yumpu::$API_TOKEN = get_option("YUMPU_API_ACCESS_TOKEN", null);
-        
-        
+
         /**
          * Vorbereitung für den Editor.
          */
@@ -208,39 +194,6 @@ Class WP_Yumpu {
 		);
 		
     }
-	
-	public function add_head_settings() {
-		echo '<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>';
-	}
-	
-	public function add_footer_settings() {
-		echo '<script type="text/javascript">
-	var _sf_async_config = { uid: 33630, domain: "yumpu.com", useCanonical: true };
-	(function() {
-		function loadChartbeat() {
-			window._sf_endpt = (new Date()).getTime();
-			var e = document.createElement("script");
-			e.setAttribute("language", "javascript");
-			e.setAttribute("type", "text/javascript");
-			e.setAttribute("src","//static.chartbeat.com/js/chartbeat.js");
-			document.body.appendChild(e);
-		};
-		var oldonload = window.onload;
-		window.onload = (typeof window.onload != "function") ?
-		loadChartbeat : function() { oldonload(); loadChartbeat(); };
-	})();
-</script>
-<script>
-(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,"script","//www.google-analytics.com/analytics.js","ga");
-
-ga("create", "UA-27868640-1", "auto");
-ga("send", "pageview");
-
-</script>';
-	}
     
     public function page_admin_settings() {
     	$WP_Yumpu_Admin_Settings = new WP_Yumpu_Admin_Settings($this->plugin_path);
@@ -251,8 +204,7 @@ ga("send", "pageview");
     	$WP_Yumpu_Admin_Files = new WP_Yumpu_Admin_Files($this->plugin_path);
     	$WP_Yumpu_Admin_Files->run();
     }
-    
-    
+
     /**
      * AJAX Handler für Admin Aufrufe.
      */
