@@ -104,9 +104,13 @@ Class WP_Yumpu {
          * Ajax Handler für API Registrieren.
          */
         add_action( 'wp_ajax_wp_yumpu', array( &$this, 'ajax_handler' ) );
-        
-        
-		/**
+
+        /**
+         * Ajax Handler für GET documents.
+         */
+        add_action('wp_ajax_get_documents', array( &$this, 'get_documents' ), 10, 0);
+
+        /**
 		 * Add chartbeat and google analytics
 		 */
 		add_action('admin_head-settings_page_yumpu-settings', array(&$this, 'add_head_settings') );
@@ -312,7 +316,30 @@ ga("send", "pageview");
     	
     	exit;
     }
-    
+
+    public function get_documents() {
+        header('Content-Type: application/json');
+        $result = YumpuEpaper_repository::getAll();
+
+        $ePapers = [];
+
+        foreach ($result as $ePaper) {
+            $ePapers[] = [
+                'Cover' => $ePaper->getImage_Small(),
+                'Title' => $ePaper->getTitle(),
+                'Language' => $ePaper->getLanguage(),
+                'Shortcode' => '[YUMPU epaper_id='.$ePaper->getEpaper_id().' width=&quot;512&quot; height=&quot;384&quot;]',
+                'State' => $ePaper->getStatus(),
+                'Visibility' => $ePaper->getPrivacy_Mode(),
+                'Created' => $ePaper->getCreate_Date(),
+                'ePaperID' => $ePaper->getEpaper_id(),
+                'Url' => $ePaper->getUrl()
+            ];
+        }
+
+        echo json_encode(['epapers' => $ePapers]);
+        exit;
+    }
     /**
      * Wenn kein API_TOKEN verfügbar ist, dann wird eine Warnmeldung eingeblendet.
      */
@@ -398,8 +425,5 @@ ga("send", "pageview");
 	}
 
 }
-
-
-
 
 WP_Yumpu::getInstance();
