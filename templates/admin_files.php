@@ -1,17 +1,10 @@
 <div class="wrap">
-    <?php
-    $pathurl= plugin_dir_url(__FILE__).'../'.'/lib/epapers.php';
-    $path=parse_url($pathurl);
- ?>
     <h2>E-Paper powered by <a href="https://www.yumpu.com" target="_blank">Yumpu.com</a></h2>
     <h2>
-        <button id="mceu_13-button" class="button-primary" href='#' onclick='overlay()'
-        ">Add New</button></h2>
-
-
+        <button id="mceu_13-button" class="button-primary" href="#" onclick="overlay()">Add New</button>
+    </h2>
     <div id="overlay"
          style="visibility: hidden; position: absolute; left: 0px; top: 0px; width:100%; height:100%; text-align:left; z-index: 100101;">
-
         <div style=" position:fixed; width:768px; height:520px;top:45%; left:59%; margin-top:-250px; margin-left:-500px; background-color: #fff; border:1px solid #000; padding:0px; text-align:left;">
             <div id="mceu_75-head" class="mce-window-head">
                 <div id="mceu_75-title" class="mce-title">Upload PDF</div>
@@ -55,7 +48,6 @@
             fd = document.getElementById("mce-modal-block");
             el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
             fd.style.visibility = (fd.style.visibility == "visible") ? "hidden" : "visible";
-
         }
     </script>
 
@@ -85,34 +77,13 @@
             <th></th>
         </tr>
         </thead>
-
-        <tbody id="dataTableBody">
-
-        </tbody>
+        <tbody id="dataTableBody"></tbody>
     </table>
-
     </br>
-
 </div>
-
-<script type="text/javascript">
-    var myScript = "";
-    var arr = jQuery.fn.jquery.split('.');
-    if (arr[1] > 11) {
-        <?php
-        $myScript = "misc/DataTables-1.10.2";
-        ?>
-    } else {
-        <?php
-        $myScript = "misc/DataTables-1.10.12";
-        ?>
-    }
-</script>
-
-<link rel="stylesheet"
-      href="<?php echo plugins_url($myScript . '/media/css/jquery.dataTables.css', dirname(__FILE__)); ?>">
+<link rel="stylesheet" href="<?php echo plugins_url('misc/DataTables-1.10.12/media/css/jquery.dataTables.css', dirname(__FILE__)); ?>">
 <link rel="stylesheet" href="<?php echo plugins_url('misc/css/yumpuEditorTheme.css', dirname(__FILE__)); ?>">
-<script src="<?php echo plugins_url($myScript . '/media/js/jquery.dataTables.min.js', dirname(__FILE__)); ?>"></script>
+<script src="<?php echo plugins_url('misc/DataTables-1.10.12/media/js/jquery.dataTables.min.js', dirname(__FILE__)); ?>"></script>
 
 <script>
     $ = jQuery.noConflict();
@@ -172,7 +143,7 @@
                     "autoWidth": false,
                     "retrieve": true,
                     "ajax": {
-                        "url": "<?php echo $path ["path"]; ?>"+"?tokenid=" + myTokenID,
+                        "url": ajaxurl + '?action=get_documents',
                         "dataSrc": "epapers",
                         "error": function (xhr, error, thrown) {
                             console.log(error.message);
@@ -190,7 +161,7 @@
                     ],
 
                     "rowCallback": function (nRow, aData) {
-                        var editButton = '<a  id="editButton" class="button-primary" href="https://www.yumpu.com/de/account/magazines/edit/' + aData['ePaperID'] + '/' + aData['Title'] + '" target="_blank" style="text-decoration: none;color: white;">Edit</a>';
+                        var editButton = '<a  id="editButton" class="button-primary" href="https://www.yumpu.com/' + aData['Language'] + '/account/magazines/edit/' + aData['ePaperID'] + '/' + aData['Title'] + '" target="_blank" style="text-decoration: none;color: white;">Edit</a>';
                         $('td:eq(6)', nRow).html(editButton).css('text-align', 'center');
 
                         $('td:eq(5)', nRow).html(aData['Created']).css('text-align', 'center');
@@ -211,7 +182,7 @@
 
                         $('td:eq(1)', nRow).html(aData['Title']);
 
-                        var Image = '<a href="https://www.yumpu.com/xx/document/view/' + aData['ePaperID'] + '" target="_blank"><img src="' + aData['Cover'] + '" alt="' + aData['Title'] + '" height="42" width="32"></a>';
+                        var Image = '<a href="' + aData['Url'] + '" target="_blank"><img src="' + aData['Cover'] + '" alt="' + aData['Title'] + '" height="42" width="32"></a>';
                         $('td:eq(0)', nRow).html(Image).css('text-align', 'center');
 
                         return nRow;
@@ -281,5 +252,4 @@
             //alert(err.message);
         }
     }
-
 </script>

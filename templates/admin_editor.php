@@ -111,10 +111,10 @@
 <link rel='stylesheet'
       href='<?php echo get_option('siteurl'); ?>/wp-admin/load-styles.php?c=0&amp;dir=ltr&amp;load=dashicons,admin-bar,buttons,media-views,wp-admin,wp-auth-check&amp;ver=3.8.1'
       type='text/css' media='all'/>
-<link rel="stylesheet" href="<?php echo $this->plugin_url; ?>misc/DataTables-1.10.2/media/css/jquery.dataTables.css">
+<link rel="stylesheet" href="<?php echo $this->plugin_url; ?>misc/DataTables-1.10.12/media/css/jquery.dataTables.css">
 <link rel="stylesheet" href="<?php echo $this->plugin_url; ?>misc/css/yumpuEditorTheme.css">
 <link rel="stylesheet"
-      href="<?php echo plugins_url('misc/DataTables-1.10.2/media/css/jquery.dataTables.css', dirname(__FILE__)); ?>">
+      href="<?php echo plugins_url('misc/DataTables-1.10.12/media/css/jquery.dataTables.css', dirname(__FILE__)); ?>">
 
 <script>
     var yumpu_plugin_url = '<?php echo $this->plugin_url; ?>';
@@ -125,7 +125,7 @@ wp_print_scripts('jquery');
 ?>
 <script language="javascript" type="text/javascript"
         src="<?php echo get_option('siteurl'); ?>/wp-includes/js/tinymce/tiny_mce_popup.js"></script>
-<script src="<?php echo $this->plugin_url; ?>misc/DataTables-1.10.2/media/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo $this->plugin_url; ?>misc/DataTables-1.10.12/media/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo $this->plugin_url; ?>misc/js/yumpuEditorActions.js"></script>
 <script type="text/javascript">
     var _sf_async_config = {uid: 33630, domain: 'yumpu.com', useCanonical: true};
