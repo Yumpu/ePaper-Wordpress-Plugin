@@ -5,6 +5,7 @@ class YumpuEpaper {
     private $progress_id;
     private $epaper_id;
     private $url;
+    private $language;
     private $short_url;
     private $title;
     private $description;
@@ -57,6 +58,13 @@ class YumpuEpaper {
      */
     public function getUrl() {
         return $this->url;
+    }
+
+    /**
+     * @return the $language
+     */
+    public function getLanguage() {
+        return $this->language;
     }
 
     /**
@@ -152,6 +160,13 @@ class YumpuEpaper {
     }
 
     /**
+     * @param field_type $language
+     */
+    public function setLanguage($language) {
+        $this->language = $language;
+    }
+
+    /**
      * @param field_type $short_url
      */
     public function setShort_url($short_url) {
@@ -213,5 +228,3 @@ class YumpuEpaper {
     }
 
 }
-
-?>
