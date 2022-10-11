@@ -78,7 +78,7 @@ class YumpuEpaper_repository {
             $ePaper->setImage_Small($mydata->image->small);
             $ePaper->setImage_Medium($mydata->image->medium);
             $ePaper->setImage_Big($mydata->image->big);
-            $ePaper->setEmbed_code($mydata->embeded_code);
+            $ePaper->setEmbed_code($mydata->embed_code);
             $ePaper->setLanguage($mydata->language);
             $ePaper->setStatus('progress');
             $ePaper->setCreate_Date($mydata->create_date);
