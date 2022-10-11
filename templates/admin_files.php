@@ -161,7 +161,7 @@
                     ],
 
                     "rowCallback": function (nRow, aData) {
-                        var editButton = '<a  id="editButton" class="button-primary" href="https://www.yumpu.com/' + aData['Language'] + '/account/magazines/edit/' + aData['ePaperID'] + '/' + aData['Title'] + '" target="_blank" style="text-decoration: none;color: white;">Edit</a>';
+                        var editButton = '<a  id="editButton" class="button-primary" href="https://www.yumpu.com/' + aData['Language'] + '/account/magazines/edit/' + aData['ePaperID'] + '" target="_blank" style="text-decoration: none;color: white;">Edit</a>';
                         $('td:eq(6)', nRow).html(editButton).css('text-align', 'center');
 
                         $('td:eq(5)', nRow).html(aData['Created']).css('text-align', 'center');
