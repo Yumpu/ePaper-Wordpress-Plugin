@@ -152,37 +152,14 @@ Class WP_Yumpu {
 	/**
 	 * Ausführung wenn der Benutzer das Plugin aktiviert
 	 */
-	public function plugin_activate() {
-		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-        global $wpdb;
-        
-		$table_name = $wpdb->prefix.'yumpu_documents';
-
-		$qry = "CREATE TABLE ".$table_name." (
-		id INTEGER NOT NULL AUTO_INCREMENT,
-		progress_id VARCHAR(255) NOT NULL,
-		epaper_id VARCHAR(255) NOT NULL,
-		url VARCHAR(255) NOT NULL,
-		short_url VARCHAR(255) NOT NULL,
-		title VARCHAR(255) NOT NULL,
-		description TEXT DEFAULT '',
-		source_filename VARCHAR(255) NOT NULL,
-		status VARCHAR(255) NOT NULL,
-		embed_code TEXT DEFAULT '',
-		UNIQUE KEY id (id)
-		);";
-		dbDelta($qry);
-	}
+	public function plugin_activate() {}
 	
 	/**
 	 * Ausführung wenn der Benutzer das Plugin deaktiviert.
 	 */
-	public function plugin_deactivate() {
-		
-	}
-	
-	
-	/**
+	public function plugin_deactivate() {}
+
+    /**
 	 * Fügt einen Einstellungspunkt unter Settings bei Wordpress hinzu.
 	 */
 	public function add_menu() {
@@ -360,17 +337,11 @@ ga("send", "pageview");
 		if(!isset($attr['epaper_id'])) {
 			return $content.'<p>misconfigured shortcode</p>';
 		}
-		
-		
-		try {
 
-		    if($document_id < 10000){
-                $ePaper = YumpuEpaper_repository::loadById($document_id);
-            } else {
-                $YAPI = new YumpuAPI(WP_Yumpu::$API_TOKEN);
-                $result = $YAPI->document_get($document_id);
-                $ePaper = YumpuEpaper_repository::LoadEpaperfromID($result);
-            }
+		try {
+            $YAPI = new YumpuAPI(WP_Yumpu::$API_TOKEN);
+            $result = $YAPI->document_get($document_id);
+            $ePaper = YumpuEpaper_repository::LoadEpaperfromID($result);
 
 			if($ePaper->getStatus() == "progress") {
 				$ret = $content.'<div style="position:relative; width:'.$document_width.'px;height:'.$document_height.'px; background:#233039;margin-bottom:10px;"><p style="text-align:center;padding-top:'.(($document_height/2)-30).'px;color:#ffffff;font-weight:normal;font-size:1.5em;">ePaper in progress <br><span style="color:#93A8B7;font-size:0.7em;">Powered by Yumpu.com</span></p>';
