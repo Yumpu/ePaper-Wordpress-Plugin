@@ -3,9 +3,8 @@
  */
 (function() {
     tinymce.create('tinymce.plugins.my_yumpu', {
-		
-        init : function(ed, url) {                    
-			var target_url = window.location.protocol + "//" + window.location.host + '/wp-admin/admin-ajax.php?action=wp_yumpu&run=editorActions';
+        init : function(ed, url) {
+            var target_url = window.location.protocol + "//" + window.location.host + '/wp-admin/admin-ajax.php?action=wp_yumpu&run=editorActions';
             
             // Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceExample');	
             ed.addCommand('my_yumpu_cmd', function() {                
@@ -21,9 +20,9 @@
 
             // Register example button
             ed.addButton('my_yumpu', {
-                title : 'Yumpu PDF',				
+                title : 'Yumpu PDF',
                 cmd : 'my_yumpu_cmd',
-                image : url + '/icon.png',                
+                image : url + '/icon.png',
             });
 
             // Add a node change handler, selects the button in the UI when a image is selected
